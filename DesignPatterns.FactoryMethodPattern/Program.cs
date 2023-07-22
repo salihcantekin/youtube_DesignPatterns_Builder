@@ -8,7 +8,7 @@ PizzaStore istanbulPizzaStore = new IstanbulPizzaStore();
 IPizza cheesePizza = ankaraPizzaStore.OrderPizza("cheese");
 Console.WriteLine("Cheese pizza ordered in Ankara Store");
 
-IPizza veggiePizza = istanbulPizzaStore.OrderPizza("veggi");
+IPizza veggiePizza = istanbulPizzaStore.OrderPizza("veggie");
 Console.WriteLine("Veggie pizza ordered in Istanbul Store");
 
 
@@ -39,21 +39,21 @@ class CheesePizza : IPizza
     }
 }
 
-class VeggiPizza : IPizza
+class VeggiePizza : IPizza
 {
     public void Prepare()
     {
-        Console.WriteLine("Veggi Pizza Prepared");
+        Console.WriteLine("Veggie Pizza Prepared");
     }
 
     public void Bake()
     {
-        Console.WriteLine("Veggi Pizza Baked");
+        Console.WriteLine("Veggie Pizza Baked");
     }
 
     public void Cut()
     {
-        Console.WriteLine("Veggi Pizza Cut");
+        Console.WriteLine("Veggie Pizza Cut");
     }
 }
 
@@ -80,7 +80,7 @@ class AnkaraPizzaStore : PizzaStore
         return type switch
         {
             "cheese" => new CheesePizza(),
-            "veggi" => new VeggiPizza(),
+            "veggie" => new VeggiePizza(),
             _ => throw new ArgumentException("Invalid pizza type", nameof(type))
         };
     }
@@ -93,7 +93,7 @@ class IstanbulPizzaStore : PizzaStore
         return type switch
         {
             "cheese" => new CheesePizza(),
-            "veggi" => new VeggiPizza(),
+            "veggie" => new VeggiePizza(),
             _ => throw new ArgumentException("Invalid pizza type", nameof(type))
         };
     }
